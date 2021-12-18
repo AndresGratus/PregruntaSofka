@@ -33,6 +33,11 @@ public class Login extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
         
+        ImageIcon wallpaper_logo = new ImageIcon("src/imagenes/imagen.jfif");
+        Icon icono_logo = new ImageIcon(wallpaper_logo.getImage().getScaledInstance(Jlabel_logo.getWidth(), Jlabel_logo.getHeight(), Image.SCALE_DEFAULT));
+        Jlabel_logo.setIcon(icono_logo);
+        this.repaint();
+        
         
     }
 
@@ -45,10 +50,19 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        Jlabel_logo = new javax.swing.JLabel();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 204));
+        jButton1.setText("INICIAR");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 400, 210, 40));
+        getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 70, 210, 210));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
@@ -90,6 +104,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Jlabel_logo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel_Wallpaper;
     // End of variables declaration//GEN-END:variables
 }
