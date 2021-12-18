@@ -33,7 +33,7 @@ public class Login extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
         
-        ImageIcon wallpaper_logo = new ImageIcon("src/imagenes/imagen.jfif");
+        ImageIcon wallpaper_logo = new ImageIcon("src/imagenes/quiz.png");
         Icon icono_logo = new ImageIcon(wallpaper_logo.getImage().getScaledInstance(Jlabel_logo.getWidth(), Jlabel_logo.getHeight(), Image.SCALE_DEFAULT));
         Jlabel_logo.setIcon(icono_logo);
         this.repaint();
@@ -61,12 +61,23 @@ public class Login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 204));
         jButton1.setText("INICIAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 400, 210, 40));
         getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 70, 210, 210));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Gestion gestion = new Gestion();
+        gestion.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
