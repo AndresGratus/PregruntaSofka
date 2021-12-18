@@ -9,6 +9,8 @@ package sofka;
  *
  * @author Andres
  */
+//Comentario
+
 public class Sofka {
 
     /**
@@ -16,6 +18,7 @@ public class Sofka {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
     
 }
