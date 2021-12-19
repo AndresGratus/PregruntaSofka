@@ -5,20 +5,36 @@
  */
 package ventanas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Andres
  */
 public class Administrador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Administrador
-     */
     public Administrador() {
         initComponents();
+        setSize(500,400);
+        setResizable(false);
         setTitle("Administrador");
         setLocationRelativeTo(null);
+        
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
+        jLabel_Wallpaper.setIcon(icono);
+        this.repaint();
     }
+    //Agregamos unos iconos 
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/creatividad.png"));
+        return retValue;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,21 +45,34 @@ public class Administrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jButton_RegistrarPregunta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel_Wallpaper = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_RegistrarPregunta.setBackground(new java.awt.Color(0, 51, 255));
+        jButton_RegistrarPregunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/creatividad.png"))); // NOI18N
+        jButton_RegistrarPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegistrarPreguntaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton_RegistrarPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 130));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Ingresar Preguntas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 120, 20));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_RegistrarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarPreguntaActionPerformed
+     
+    }//GEN-LAST:event_jButton_RegistrarPreguntaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +110,8 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_RegistrarPregunta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_Wallpaper;
     // End of variables declaration//GEN-END:variables
 }
