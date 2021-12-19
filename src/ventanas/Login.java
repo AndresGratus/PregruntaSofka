@@ -52,6 +52,8 @@ public class Login extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         Jlabel_logo = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel_foolder = new javax.swing.JLabel();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,14 +62,31 @@ public class Login extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 204));
-        jButton1.setText("INICIAR");
+        jButton1.setText("JUGAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 400, 210, 40));
-        getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 70, 210, 210));
+        getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 70, 210, 230));
+
+        jButton2.setBackground(new java.awt.Color(255, 51, 0));
+        jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Acceder");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 320, 210, 40));
+
+        jLabel_foolder.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel_foolder.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_foolder.setText("Creado por Andres Felipe æ.");
+        getContentPane().add(jLabel_foolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 510, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
@@ -75,9 +94,14 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
         Gestion gestion = new Gestion();
         gestion.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,6 +141,8 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Jlabel_logo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JLabel jLabel_foolder;
     // End of variables declaration//GEN-END:variables
 }
