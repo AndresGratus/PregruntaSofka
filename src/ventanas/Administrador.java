@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -18,10 +19,11 @@ public class Administrador extends javax.swing.JFrame {
 
     public Administrador() {
         initComponents();
-        setSize(500,400);
+        setSize(650,400);
         setResizable(false);
         setTitle("Administrador");
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
@@ -63,15 +65,16 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Ingresar Preguntas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 120, 20));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
+        jLabel1.setText("Configurar Preguntas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 30));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_RegistrarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarPreguntaActionPerformed
-     
+        RegistrarPreguntas registrarpreguntas = new RegistrarPreguntas();
+        registrarpreguntas.setVisible(true);
     }//GEN-LAST:event_jButton_RegistrarPreguntaActionPerformed
 
     /**
