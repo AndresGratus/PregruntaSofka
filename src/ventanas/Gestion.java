@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import clases.Conexiones;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -29,6 +30,8 @@ public class Gestion extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Configuracion");
         setLocationRelativeTo(null);
+        
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         //Walpaper dos
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");

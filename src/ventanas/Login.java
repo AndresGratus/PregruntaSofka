@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -27,6 +28,8 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Acceso principal");
         setLocationRelativeTo(null);
+        
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         //Dentro de imageico guardamos la ruta de las imagenes 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
@@ -100,13 +103,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
+       new Jugador().setVisible(true);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        dispose();
+        
         Gestion gestion = new Gestion();
         gestion.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

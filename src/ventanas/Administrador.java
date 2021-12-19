@@ -23,6 +23,7 @@ public class Administrador extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Administrador");
         setLocationRelativeTo(null);
+        
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
