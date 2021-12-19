@@ -208,6 +208,32 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
             bandera++;
         }
 
+        //validamos los CMB categoria
+        if (categoria_cmb == 1) {
+            categoria_string = "Historia";
+        } else if (categoria_cmb == 2) {
+            categoria_string = "Ciencia";
+        } else if (categoria_cmb == 3) {
+            categoria_string = "Entretenimiento";
+        } else if (categoria_cmb == 4) {
+            categoria_string = "Geografia";
+        } else if (categoria_cmb == 5) {
+            categoria_string = "Deportes";
+        }
+
+        //Validamos  los CMB ronda
+        if (ronda_cmb == 1) {
+            ronda_string = "Ronda 1";
+        } else if (ronda_cmb == 2) {
+            ronda_string = "Ronda 2";
+        } else if (ronda_cmb == 3) {
+            ronda_string = "Ronda 3";
+        } else if (ronda_cmb == 4) {
+            ronda_string = "Ronda 4";
+        } else if (ronda_cmb == 5) {
+            ronda_string = "Ronda 5";
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
