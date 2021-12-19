@@ -6,6 +6,7 @@
 package ventanas;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -40,6 +41,11 @@ public class Login extends javax.swing.JFrame {
         
         
     }
+     @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/quiz.png"));
+        return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +63,7 @@ public class Login extends javax.swing.JFrame {
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -99,6 +106,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        dispose();
         Gestion gestion = new Gestion();
         gestion.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
