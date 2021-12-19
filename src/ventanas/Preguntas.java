@@ -5,17 +5,46 @@
  */
 package ventanas;
 
-/**
- *
- * @author Andres
- */
+import java.sql.*;
+import clases.Conexiones;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 public class Preguntas extends javax.swing.JFrame {
 
     /**
      * Creates new form Preguntas
      */
+    
+    private PreguntaDate RondaUno[];
+    private PreguntaDate RondaDos[];
+    private PreguntaDate RondaTres[];
+    private PreguntaDate RondaCuatro[];
+    private PreguntaDate RondaCinco[];
+    
     public Preguntas() {
+        
+        RondaUno = new PreguntaDate[5];
+        RondaDos = new PreguntaDate[5];
+        RondaTres = new PreguntaDate[5];
+        RondaCuatro = new PreguntaDate[5];
+        RondaCinco = new PreguntaDate[5];
+        
         initComponents();
+        
+        setSize(400,400);
+        setResizable(false);
+        setTitle("Preguntas y Respuestas");
+        setLocationRelativeTo(null);
+        
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
+        jLabel_Wallpaper.setIcon(icono);
+        this.repaint();
+        
+        
     }
 
     /**
@@ -27,21 +56,74 @@ public class Preguntas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel_Nombre6 = new javax.swing.JLabel();
+        txt_RegistradoPor = new javax.swing.JTextField();
+        checkbox1 = new java.awt.Checkbox();
+        checkbox2 = new java.awt.Checkbox();
+        checkbox3 = new java.awt.Checkbox();
+        checkbox4 = new java.awt.Checkbox();
+        jButton1 = new javax.swing.JButton();
+        jLabel_Wallpaper = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_Nombre6.setBackground(new java.awt.Color(153, 51, 255));
+        jLabel_Nombre6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel_Nombre6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Nombre6.setText("Pregunta.");
+        getContentPane().add(jLabel_Nombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 200, 30));
+
+        txt_RegistradoPor.setBackground(new java.awt.Color(153, 51, 255));
+        txt_RegistradoPor.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_RegistradoPor.setForeground(new java.awt.Color(255, 255, 255));
+        txt_RegistradoPor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_RegistradoPor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_RegistradoPor.setEnabled(false);
+        txt_RegistradoPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_RegistradoPorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_RegistradoPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 330, 60));
+
+        checkbox1.setLabel("checkbox1");
+        getContentPane().add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        checkbox2.setLabel("checkbox2");
+        getContentPane().add(checkbox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        checkbox3.setLabel("checkbox3");
+        getContentPane().add(checkbox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        checkbox4.setLabel("checkbox4");
+        getContentPane().add(checkbox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        jButton1.setText("Jugar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 90, 60));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_RegistradoPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RegistradoPorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_RegistradoPorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        String ronda="";
+        
+        JOptionPane.showMessageDialog(null, "Ronda");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +161,13 @@ public class Preguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Checkbox checkbox1;
+    private java.awt.Checkbox checkbox2;
+    private java.awt.Checkbox checkbox3;
+    private java.awt.Checkbox checkbox4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel_Nombre6;
+    private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JTextField txt_RegistradoPor;
     // End of variables declaration//GEN-END:variables
 }
