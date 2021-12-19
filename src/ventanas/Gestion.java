@@ -43,100 +43,31 @@ public class Gestion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_user = new javax.swing.JTextField();
-        txt_password = new javax.swing.JPasswordField();
-        jButon_Acceder = new javax.swing.JButton();
-        Jlabel_logo = new javax.swing.JLabel();
+        jButton_RegistrarUsuario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_user.setBackground(new java.awt.Color(0, 51, 255));
-        txt_user.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txt_user.setForeground(new java.awt.Color(255, 255, 255));
-        txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_user.addActionListener(new java.awt.event.ActionListener() {
+        jButton_RegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_userActionPerformed(evt);
+                jButton_RegistrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 330, 210, -1));
+        getContentPane().add(jButton_RegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 120, 100));
 
-        txt_password.setBackground(new java.awt.Color(0, 51, 255));
-        txt_password.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txt_password.setForeground(new java.awt.Color(255, 255, 255));
-        txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
-
-        jButon_Acceder.setBackground(new java.awt.Color(0, 51, 255));
-        jButon_Acceder.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        jButon_Acceder.setForeground(new java.awt.Color(255, 255, 255));
-        jButon_Acceder.setText("Acceder");
-        jButon_Acceder.setBorder(null);
-        jButon_Acceder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButon_AccederActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButon_Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 420, 210, 35));
-        getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 270, 270));
+        jLabel1.setText("Configurar Preguntas.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_userActionPerformed
-
-    private void jButon_AccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButon_AccederActionPerformed
-
-        user = txt_user.getText().trim();
-        pass = txt_password.getText().trim();
-
-        if (!user.equals("") || !pass.equals("")) {
-            try {
-                Connection cn = Conexion.conectar();
-                PreparedStatement pst = cn.prepareStatement(
-                    "select tipo_nivel, estatus from usuarios where username ='" + user
-                    + "' and password = '" + pass + "'");
-
-                ResultSet rs = pst.executeQuery();
-                if (rs.next()) {
-
-                    String tipo_nivel = rs.getString("tipo_nivel");
-                    String estatus = rs.getString("estatus");
-
-                    if (tipo_nivel.equals("Administrador") && estatus.equalsIgnoreCase("Activo")) {
-                        dispose();
-                        new Administrador().setVisible(true);
-
-                    } else if (tipo_nivel.equals("Capturista") && estatus.equalsIgnoreCase("Activo")) {
-                        dispose();
-                        new Capturista().setVisible(true);
-
-                    } else if (tipo_nivel.equals("Tecnico") && estatus.equalsIgnoreCase("Activo")) {
-                        dispose();
-                        new Tecnico().setVisible(true);
-                    }
-
-                } else {
-                    JOptionPane.showMessageDialog(null, " Datos de acceso incorrectos.");
-                    txt_user.setText("");
-                    txt_password.setText("");
-                }
-
-            } catch (SQLException e) {
-                System.err.println("Error en el botón Acceder." + e);
-                JOptionPane.showMessageDialog(null, " !!¿Error al iniciar sesión¡¡, contacte al administrador.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, " Debes llenar todos los campos.");
-        }
-    }//GEN-LAST:event_jButon_AccederActionPerformed
+    private void jButton_RegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarUsuarioActionPerformed
+//        RegistrarUsuarios registrarUsuarios = new RegistrarUsuarios();
+//        registrarUsuarios.setVisible(true);
+    }//GEN-LAST:event_jButton_RegistrarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,10 +105,8 @@ public class Gestion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Jlabel_logo;
-    private javax.swing.JButton jButon_Acceder;
+    private javax.swing.JButton jButton_RegistrarUsuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_Wallpaper;
-    private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
 }
