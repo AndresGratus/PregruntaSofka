@@ -42,16 +42,109 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txt_Pregunta = new javax.swing.JTextField();
+        txt_respuestaVerdadera = new javax.swing.JTextField();
+        txt_respuestaFalsaUno = new javax.swing.JTextField();
+        txt_respuestaFalsaDos = new javax.swing.JTextField();
+        txt_respuestaFalsaTres = new javax.swing.JTextField();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_Wallpaper.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Pregunta:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Respuesta correcta:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Respuesta falsa:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Respuesta falsa:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Respuesta falsa:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, -1, -1));
+
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
+
+        txt_Pregunta.setBackground(new java.awt.Color(153, 51, 255));
+        txt_Pregunta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_Pregunta.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Pregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Pregunta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_Pregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_PreguntaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_Pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 300, 50));
+
+        txt_respuestaVerdadera.setBackground(new java.awt.Color(153, 51, 255));
+        txt_respuestaVerdadera.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_respuestaVerdadera.setForeground(new java.awt.Color(255, 255, 255));
+        txt_respuestaVerdadera.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_respuestaVerdadera.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txt_respuestaVerdadera, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 210, -1));
+
+        txt_respuestaFalsaUno.setBackground(new java.awt.Color(153, 51, 255));
+        txt_respuestaFalsaUno.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_respuestaFalsaUno.setForeground(new java.awt.Color(255, 255, 255));
+        txt_respuestaFalsaUno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_respuestaFalsaUno.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txt_respuestaFalsaUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 210, -1));
+
+        txt_respuestaFalsaDos.setBackground(new java.awt.Color(153, 51, 255));
+        txt_respuestaFalsaDos.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_respuestaFalsaDos.setForeground(new java.awt.Color(255, 255, 255));
+        txt_respuestaFalsaDos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_respuestaFalsaDos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txt_respuestaFalsaDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 210, -1));
+
+        txt_respuestaFalsaTres.setBackground(new java.awt.Color(153, 51, 255));
+        txt_respuestaFalsaTres.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_respuestaFalsaTres.setForeground(new java.awt.Color(255, 255, 255));
+        txt_respuestaFalsaTres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_respuestaFalsaTres.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txt_respuestaFalsaTres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 210, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_PreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PreguntaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_PreguntaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +182,20 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JTextField txt_Pregunta;
+    private javax.swing.JTextField txt_respuestaFalsaDos;
+    private javax.swing.JTextField txt_respuestaFalsaTres;
+    private javax.swing.JTextField txt_respuestaFalsaUno;
+    private javax.swing.JTextField txt_respuestaVerdadera;
     // End of variables declaration//GEN-END:variables
 }
