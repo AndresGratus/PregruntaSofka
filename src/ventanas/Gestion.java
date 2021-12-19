@@ -10,6 +10,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.sql.*;
 import clases.Conexiones;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,23 +18,30 @@ import clases.Conexiones;
  */
 public class Gestion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Gestion
-     */
+    //Creamos las variables de interfaz
+    public static String user = "";
+    String pass = "";
+
     public Gestion() {
         initComponents();
-        
-        setSize(400,550);
+
+        setSize(400, 550);
         setResizable(false);
-        setTitle("CONFIGURACIÓN");
+        setTitle("Configuracion");
         setLocationRelativeTo(null);
-        
+
         //Walpaper dos
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
-        
+
+        //Logo
+        ImageIcon wallpaper_logo = new ImageIcon("src/imagenes/configuracion.png");
+        Icon icono_logo = new ImageIcon(wallpaper_logo.getImage().getScaledInstance(Jlabel_logo.getWidth(), Jlabel_logo.getHeight(), Image.SCALE_DEFAULT));
+        Jlabel_logo.setIcon(icono_logo);
+        this.repaint();
+
     }
 
     /**
@@ -72,7 +80,7 @@ public class Gestion extends javax.swing.JFrame {
         txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 370, 210, -1));
-        getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 270, 270));
+        getContentPane().add(Jlabel_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 220, 190));
 
         jButon_Acceder.setBackground(new java.awt.Color(153, 51, 255));
         jButon_Acceder.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -96,7 +104,45 @@ public class Gestion extends javax.swing.JFrame {
 
     private void jButon_AccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButon_AccederActionPerformed
         //Programacion de acceder
-        
+
+        //Recuperamos los datos
+        user = txt_user.getText().trim();
+        pass = txt_password.getText().trim();
+
+        //Validacion 
+        if (!user.equals("") || !pass.equals("")) {
+
+            try {
+                Connection conec = Conexiones.connect();
+                PreparedStatement pst = conec.prepareStatement(
+                        "select tipo_nivel, estatus from usuarios where username ='" + user
+                        + "' and password = '" + pass + "'");
+                
+                ResultSet rs = pst.executeQuery();
+                
+                if (rs.next()) {
+                    String tipo_nivel = rs.getString("tipo_nivel");
+                    String estatus = rs.getString("estatus");
+                    
+                    if (tipo_nivel.equalsIgnoreCase("Administrador") && estatus.equalsIgnoreCase("Activo")) {
+                        dispose();
+                        new Administrador().setVisible(true);
+                    }
+                    
+                } else{
+                    JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos.");
+                    txt_user.setText("");
+                    txt_password.setText("");
+                }
+
+            } catch (Exception e) {
+                System.err.println("Error en Acceder" + e);
+                JOptionPane.showMessageDialog(null, "!!Error al iniciar sesión!!, contacte al administrador");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+        }
     }//GEN-LAST:event_jButon_AccederActionPerformed
 
     /**
