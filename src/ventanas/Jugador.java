@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ventanas;
 
-/**
- *
- * @author Andres
- */
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+import java.sql.*;
+import clases.Conexiones;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+
 public class Jugador extends javax.swing.JFrame {
 
     /**
@@ -21,8 +23,12 @@ public class Jugador extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Datos");
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
-        
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
+        jLabel_Wallpaper.setIcon(icono);
+        this.repaint();
     }
 
     /**
@@ -34,14 +40,102 @@ public class Jugador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txt_nombre = new javax.swing.JTextField();
+        txt_edad = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Edad:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 210, 40));
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Nombre:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 210, 40));
+
+        txt_nombre.setBackground(new java.awt.Color(153, 0, 255));
+        txt_nombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        txt_nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 210, -1));
+
+        txt_edad.setBackground(new java.awt.Color(153, 0, 255));
+        txt_edad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_edad.setForeground(new java.awt.Color(255, 255, 255));
+        txt_edad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 210, -1));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 255));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Iniciar el juego");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 210, 50));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+       String nombre,edad;
+        int bandera=0;
+        
+        nombre = txt_nombre.getText().trim();
+        edad = txt_edad.getText().trim();
+        
+        if (nombre.equals("")) {
+            txt_nombre.setBackground(Color.red);
+            bandera++;
+        } 
+        if (edad.equals("")) {
+            txt_edad.setBackground(Color.red);
+            bandera++;
+        }
+        
+        if (bandera == 0) {
+            try {
+                Connection conec = Conexiones.connect();
+                PreparedStatement pst = conec.prepareStatement(
+                        "insert into jugador values(?,?,?,?)");
+                
+                pst.setInt(1, 0);
+                pst.setString(2, nombre);
+                pst.setString(3, "000");
+                pst.setString(4, edad);
+                
+                pst.executeUpdate();
+                conec.close();
+                
+                dispose();
+                
+            } catch (SQLException e) {
+                System.err.println("Error con el jugador");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+        }
+        
+        Preguntas preguntas = new Preguntas();
+        preguntas.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,6 +173,59 @@ public class Jugador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JTextField txt_edad;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
+
+    //Este metodo es para ingresar un jugadores
+//    public void ingresarJugador(){
+//        String nombre,edad;
+//        int bandera=0;
+//        
+//        nombre = txt_nombre.getText().trim();
+//        edad = txt_edad.getText().trim();
+//        
+//        if (nombre.equals("")) {
+//            txt_nombre.setBackground(Color.red);
+//            bandera++;
+//        } 
+//        if (edad.equals("")) {
+//            txt_edad.setBackground(Color.red);
+//            bandera++;
+//        }
+//        
+//        if (bandera == 0) {
+//            try {
+//                Connection conec = Conexiones.connect();
+//                PreparedStatement pst = conec.prepareStatement(
+//                        "insert into jugador values(?,?,?,?)");
+//                
+//                pst.setInt(1, 0);
+//                pst.setString(2, nombre);
+//                pst.setString(3, "000");
+//                pst.setString(4, edad);
+//                
+//                pst.executeUpdate();
+//                conec.close();
+//                
+//                clean();
+//                
+//            } catch (SQLException e) {
+//                System.err.println("Error con el jugador");
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+//        }
+////    }
+    
+    
+    
+    public void clean(){
+        txt_nombre.setText("");
+        txt_edad.setText("");
+    }
 }
