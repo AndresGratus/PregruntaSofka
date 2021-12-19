@@ -12,31 +12,32 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import clases.Conexiones;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Andres
  */
 public class RegistrarPreguntas extends javax.swing.JFrame {
-
+    
     String user = "";
-
+    
     public RegistrarPreguntas() {
         user = Gestion.user;
         initComponents();
-
+        
         setSize(630, 380);
         setResizable(false);
         setTitle("Preguntas Y Respuestas. sesion de " + user);
         setLocationRelativeTo(null);
-
+        
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -177,7 +178,7 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
         int categoria_cmb, ronda_cmb, bandera = 0;
         String pregunta, respuestaVerdadera, respuestaFalsaUno, respuestaFalsaDos, respuestaFalsaTres;
         String categoria_string = "", ronda_string = "";
-
+        
         pregunta = txt_Pregunta.getText().trim();
         respuestaVerdadera = txt_respuestaVerdadera.getText().trim();
         respuestaFalsaUno = txt_respuestaFalsaUno.getText().trim();
@@ -233,6 +234,38 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
         } else if (ronda_cmb == 5) {
             ronda_string = "Ronda 5";
         }
+        
+        if (bandera == 0) {
+            try {
+                //Creo la connection con la clase conectar
+                Connection conec = Conexiones.connect();
+                PreparedStatement pst = conec.prepareStatement(
+                        "insert into preguntas values(?,?,?,?,?,?,?,?)");
+                
+                pst.setInt(1, 0);
+                pst.setString(2, pregunta);
+                pst.setString(3, respuestaVerdadera);
+                pst.setString(4, respuestaFalsaUno);
+                pst.setString(5, respuestaFalsaDos);
+                pst.setString(6, respuestaFalsaTres);
+                pst.setString(7, categoria_string);
+                pst.setString(8, ronda_string);
+                
+                pst.executeUpdate();
+                conec.close();
+                
+                clean();
+                
+            } catch (SQLException e) {
+                System.err.println("Error en registrar pregunta.");
+                JOptionPane.showMessageDialog(null,  "<html> <p style = \"color:red \">  ¡¡ERRROR!! Contacte al administrador. </p> </html>", "Notificacion",
+                                 JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else{
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+                    
+        }
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -290,4 +323,16 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
     private javax.swing.JTextField txt_respuestaFalsaUno;
     private javax.swing.JTextField txt_respuestaVerdadera;
     // End of variables declaration//GEN-END:variables
+
+    //Creamos una escoba:)
+    public void clean(){
+        txt_Pregunta.setText("");
+        txt_respuestaFalsaDos.setText("");
+        txt_respuestaVerdadera.setText("");
+        txt_respuestaFalsaTres.setText("");
+        txt_respuestaFalsaUno.setText("");
+        cmb_categoria.setSelectedIndex(0);
+        cmb_ronda.setSelectedIndex(0);
+        
+    }
 }
