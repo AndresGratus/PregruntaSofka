@@ -15,6 +15,7 @@ import clases.Conexiones;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,6 +47,38 @@ public class GestionPregunta extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
         
+        try {
+            Connection conec = Conexiones.connect();
+            PreparedStatement pst = conec.prepareStatement(
+                    "select id_pregunta, pregunta, op_verdadera, categoria, ronda from preguntas");
+            
+            ResultSet rs = pst.executeQuery();
+            
+            jt_preguntas = new JTable(model);
+            jScrollPane1.setViewportView(jt_preguntas);
+            
+            //Modificamos los titulos de la tabla
+            model.addColumn(" ");
+            model.addColumn("Pregunta");
+            model.addColumn("Respuesta");
+            model.addColumn("Categoria");
+            model.addColumn("Ronda");
+            
+            //llenamos la tabla
+            while (rs.next()) {                
+                Object[] objfila = new Object[5];
+                for (int i = 0; i < 5; i++) {
+                    objfila[i] = rs.getObject(i+1);
+                }
+                model.addRow(objfila);
+            }
+            conec.close();
+            
+        } catch (SQLException e) {
+            System.err.println("Error al llenar tabla" + e);
+            JOptionPane.showMessageDialog(null, "!Error al mostrar informacion, contacte al administrador!");
+        }
+        
         
     }
 
@@ -60,25 +93,31 @@ public class GestionPregunta extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_preguntas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jt_preguntas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jt_preguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         jScrollPane1.setViewportView(jt_preguntas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 60, 490, 180));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 500, 180));
+
+        jLabel1.setText("Creado por Andres.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 280));
 
         pack();
@@ -120,6 +159,7 @@ public class GestionPregunta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_Wallpaper;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jt_preguntas;
