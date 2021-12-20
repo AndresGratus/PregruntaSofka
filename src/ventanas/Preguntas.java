@@ -57,7 +57,7 @@ public class Preguntas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel_Nombre6 = new javax.swing.JLabel();
         txt_pregunta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -65,10 +65,8 @@ public class Preguntas extends javax.swing.JFrame {
         jRadioButton_dos = new javax.swing.JRadioButton();
         jRadioButton_tres = new javax.swing.JRadioButton();
         jRadioButton_cuatro = new javax.swing.JRadioButton();
+        jButton2 = new javax.swing.JButton();
         jLabel_Wallpaper = new javax.swing.JLabel();
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,15 +99,30 @@ public class Preguntas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 90, 60));
 
+        buttonGroup1.add(jRadioButton_uno);
         jRadioButton_uno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton_unoActionPerformed(evt);
             }
         });
         getContentPane().add(jRadioButton_uno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        buttonGroup1.add(jRadioButton_dos);
         getContentPane().add(jRadioButton_dos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        buttonGroup1.add(jRadioButton_tres);
         getContentPane().add(jRadioButton_tres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        buttonGroup1.add(jRadioButton_cuatro);
         getContentPane().add(jRadioButton_cuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+
+        jButton2.setText("comprobar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 100, 60));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
 
         pack();
@@ -132,7 +145,7 @@ public class Preguntas extends javax.swing.JFrame {
                 ID = rs.getInt("id_pregunta");
 
                 txt_pregunta.setText(rs.getString("pregunta"));
-                int num = (int) (Math.random() * (10));
+                int num = (int) (Math.random() * (7));
                 
 
                 if (num == 0) {
@@ -165,6 +178,16 @@ public class Preguntas extends javax.swing.JFrame {
                     jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
                     jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
                     jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
+                } else if (num == 6) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_dos.setText(rs.getString("op_verdadera"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
+                } else if (num == 7) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_verdadera"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
                 }
 
             }
@@ -179,6 +202,13 @@ public class Preguntas extends javax.swing.JFrame {
     private void jRadioButton_unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_unoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton_unoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
     String texto = "";
 
     public void listar() {
@@ -225,10 +255,11 @@ public class Preguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel_Nombre6;
     private javax.swing.JLabel jLabel_Wallpaper;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButton jRadioButton_cuatro;
     private javax.swing.JRadioButton jRadioButton_dos;
     private javax.swing.JRadioButton jRadioButton_tres;
