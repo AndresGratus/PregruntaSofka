@@ -14,37 +14,38 @@ import javax.swing.JOptionPane;
 
 public class Preguntas extends javax.swing.JFrame {
 
+    String aux1, aux2, aux3, aux4, aux5, aux6, aux7, aux8, ronda = "Ronda 1";
+    int ID = 1;
+
     /**
      * Creates new form Preguntas
      */
-    
     private PreguntaDate RondaUno[];
     private PreguntaDate RondaDos[];
     private PreguntaDate RondaTres[];
     private PreguntaDate RondaCuatro[];
     private PreguntaDate RondaCinco[];
-    
+
     public Preguntas() {
-        
-        RondaUno = new PreguntaDate[5];
+
+        RondaUno = new PreguntaDate[1];
         RondaDos = new PreguntaDate[5];
         RondaTres = new PreguntaDate[5];
         RondaCuatro = new PreguntaDate[5];
         RondaCinco = new PreguntaDate[5];
-        
+
         initComponents();
-        
-        setSize(400,400);
+
+        setSize(400, 400);
         setResizable(false);
         setTitle("Preguntas y Respuestas");
         setLocationRelativeTo(null);
-        
+
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
-        
-        
+
     }
 
     /**
@@ -56,14 +57,18 @@ public class Preguntas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jLabel_Nombre6 = new javax.swing.JLabel();
-        txt_RegistradoPor = new javax.swing.JTextField();
-        checkbox1 = new java.awt.Checkbox();
-        checkbox2 = new java.awt.Checkbox();
-        checkbox3 = new java.awt.Checkbox();
-        checkbox4 = new java.awt.Checkbox();
+        txt_pregunta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jRadioButton_uno = new javax.swing.JRadioButton();
+        jRadioButton_dos = new javax.swing.JRadioButton();
+        jRadioButton_tres = new javax.swing.JRadioButton();
+        jRadioButton_cuatro = new javax.swing.JRadioButton();
         jLabel_Wallpaper = new javax.swing.JLabel();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,30 +80,18 @@ public class Preguntas extends javax.swing.JFrame {
         jLabel_Nombre6.setText("Pregunta.");
         getContentPane().add(jLabel_Nombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 200, 30));
 
-        txt_RegistradoPor.setBackground(new java.awt.Color(153, 51, 255));
-        txt_RegistradoPor.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        txt_RegistradoPor.setForeground(new java.awt.Color(255, 255, 255));
-        txt_RegistradoPor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_RegistradoPor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txt_RegistradoPor.setEnabled(false);
-        txt_RegistradoPor.addActionListener(new java.awt.event.ActionListener() {
+        txt_pregunta.setBackground(new java.awt.Color(153, 51, 255));
+        txt_pregunta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_pregunta.setForeground(new java.awt.Color(255, 255, 255));
+        txt_pregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_pregunta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_pregunta.setEnabled(false);
+        txt_pregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_RegistradoPorActionPerformed(evt);
+                txt_preguntaActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_RegistradoPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 330, 60));
-
-        checkbox1.setLabel("checkbox1");
-        getContentPane().add(checkbox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
-
-        checkbox2.setLabel("checkbox2");
-        getContentPane().add(checkbox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-
-        checkbox3.setLabel("checkbox3");
-        getContentPane().add(checkbox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
-
-        checkbox4.setLabel("checkbox4");
-        getContentPane().add(checkbox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        getContentPane().add(txt_pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 330, 60));
 
         jButton1.setText("Jugar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,23 +100,94 @@ public class Preguntas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 90, 60));
+
+        jRadioButton_uno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_unoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton_uno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(jRadioButton_dos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        getContentPane().add(jRadioButton_tres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        getContentPane().add(jRadioButton_cuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_RegistradoPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RegistradoPorActionPerformed
+    private void txt_preguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_preguntaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_RegistradoPorActionPerformed
+    }//GEN-LAST:event_txt_preguntaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        String ronda="";
-        
-        JOptionPane.showMessageDialog(null, "Ronda");
-        
+        try {
+            Connection cn = Conexiones.connect();
+            PreparedStatement pst = cn.prepareStatement(
+                    "select * from preguntas where ronda = '" + ronda
+                    + "' and id_pregunta = '" + ID + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                ID = rs.getInt("id_pregunta");
+
+                txt_pregunta.setText(rs.getString("pregunta"));
+                int num = (int) (Math.random() * (10));
+                
+
+                if (num == 0) {
+                    jRadioButton_uno.setText(rs.getString("op_verdadera"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+                } else if (num == 1) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_verdadera"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+                } else if (num == 2) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_verdadera"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+                } else if (num == 3) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_cuatro.setText(rs.getString("op_verdadera"));
+                } else if (num == 4) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_verdadera"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_dos"));
+                } else if (num == 5) {
+                    jRadioButton_uno.setText(rs.getString("op_verdadera"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
+                }
+
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error");
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton_unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_unoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_unoActionPerformed
+    String texto = "";
+
+    public void listar() {
+        for (int i = 0; i < 1; i++) {
+            PreguntaDate pregu = RondaUno[i];
+            texto += (1 + i) + pregu.getCategoria() + "  " + pregu.getRonda();
+        }
+        JOptionPane.showMessageDialog(null, "El areglo tiene " + texto);
+    }
 
     /**
      * @param args the command line arguments
@@ -161,13 +225,26 @@ public class Preguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox checkbox1;
-    private java.awt.Checkbox checkbox2;
-    private java.awt.Checkbox checkbox3;
-    private java.awt.Checkbox checkbox4;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel_Nombre6;
     private javax.swing.JLabel jLabel_Wallpaper;
-    private javax.swing.JTextField txt_RegistradoPor;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButton jRadioButton_cuatro;
+    private javax.swing.JRadioButton jRadioButton_dos;
+    private javax.swing.JRadioButton jRadioButton_tres;
+    private javax.swing.JRadioButton jRadioButton_uno;
+    private javax.swing.JTextField txt_pregunta;
     // End of variables declaration//GEN-END:variables
+
+    //metodo ramdon
+//    public void ramdom() {
+//        int num = (int) (Math.random() * (10));
+//
+//        if (num == 0) {
+//            jRadioButton_uno.setText(rs.getString("op_verdadera"));
+//            jRadioButton_dos.setText(rs.getString("op_falsa_uno"));
+//            jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+//            jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+//        }
+//    }
 }
