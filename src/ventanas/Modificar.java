@@ -7,10 +7,13 @@ package ventanas;
 
 import java.sql.*;
 import clases.Conexiones;
+import java.awt.Color;
+
 import java.awt.Image;
 import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -22,9 +25,9 @@ public class Modificar extends javax.swing.JFrame {
     /**
      * Creates new form Modificar
      */
-    
-    String user="", update="";
+    String user = "", update = "";
     int id;
+
     public Modificar() {
         initComponents();
         user = Gestion.user;
@@ -33,18 +36,39 @@ public class Modificar extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Modificar pregunta.");
         setLocationRelativeTo(null);
-        
+
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
-        
+
         try {
-            Connection conec = con
-        } catch (Exception e) {
+            Connection conec = Conexiones.connect();
+            PreparedStatement pst = conec.prepareCall(
+                    "select * from preguntas where op_verdadera ='" + update + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                id = rs.getInt("id_pregunta");
+                txt_id.setText(String.valueOf(id));
+                txt_pregunta.setText(rs.getString("pregunta"));
+                txt_respuesta.setText(rs.getString("op_verdadera"));
+                txt_falsa1.setText(rs.getString("op_falsa_uno"));
+                txt_falsa2.setText(rs.getString("op_falsa_dos"));
+                txt_falsa3.setText(rs.getString("op_falsa_tres"));
+
+                cmb_categoria.setSelectedItem(rs.getString("categoria"));
+                cmb_ronda.setSelectedItem(rs.getString("ronda"));
+            }
+            conec.close();
+
+        } catch (SQLException e) {
+            System.err.println("Error en cargar usuario. " + e);
+            JOptionPane.showMessageDialog(null, "Error al cargar contacte al Administrador. ");
         }
         
+
     }
 
     /**
@@ -67,11 +91,12 @@ public class Modificar extends javax.swing.JFrame {
         txt_falsa2 = new javax.swing.JTextField();
         txt_falsa3 = new javax.swing.JTextField();
         txt_pregunta = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmb_categoria = new javax.swing.JComboBox<>();
+        cmb_ronda = new javax.swing.JComboBox<>();
         jLabel_pregunta5 = new javax.swing.JLabel();
         jLabel_pregunta6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,16 +162,16 @@ public class Modificar extends javax.swing.JFrame {
         txt_pregunta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(txt_pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 550, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Historia", "Ciencia", "Entretenimiento", "Geografia", "Deportes" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmb_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Historia", "Ciencia", "Entretenimiento", "Geografia", "Deportes" }));
+        cmb_categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmb_categoriaActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 140, 30));
+        getContentPane().add(cmb_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 140, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ronda 1", "Ronda 2", "Ronda 3", "Ronda 4", "Ronda 5" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 140, 30));
+        cmb_ronda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ronda 1", "Ronda 2", "Ronda 3", "Ronda 4", "Ronda 5" }));
+        getContentPane().add(cmb_ronda, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 140, 30));
 
         jLabel_pregunta5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_pregunta5.setText("Categoria:");
@@ -159,7 +184,19 @@ public class Modificar extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Actualizar pregunta.");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 190, 90));
+
+        txt_id.setBackground(new java.awt.Color(0, 0, 204));
+        txt_id.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_id.setForeground(new java.awt.Color(255, 255, 255));
+        txt_id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_id.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 50, 40));
 
         jLabel_Wallpaper.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel_Wallpaper.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,9 +205,98 @@ public class Modificar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cmb_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_categoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmb_categoriaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        int categoria_cmb, ronda_cmb, bandera = 0;
+        String pregunta, respuesta, falsaUno, falsaDos, falsaTres, categoria_string = "", ronda_string = "";
+
+        pregunta = txt_pregunta.getText().trim();
+        respuesta = txt_respuesta.getText().trim();
+        falsaUno = txt_falsa1.getText().trim();
+        falsaDos = txt_falsa2.getText().trim();
+        falsaTres = txt_falsa3.getText().trim();
+        categoria_cmb = cmb_categoria.getSelectedIndex() + 1;
+        ronda_cmb = cmb_ronda.getSelectedIndex() + 1;
+
+        //Validacion
+        if (pregunta.equals("")) {
+            txt_pregunta.setBackground(Color.red);
+            bandera++;
+        }
+        if (respuesta.equals("")) {
+            txt_respuesta.setBackground(Color.red);
+            bandera++;
+        }
+        if (falsaUno.equals("")) {
+            txt_falsa1.setBackground(Color.red);
+            bandera++;
+        }
+        if (falsaDos.equals("")) {
+            txt_falsa2.setBackground(Color.red);
+            bandera++;
+        }
+        if (falsaTres.equals("")) {
+            txt_falsa3.setBackground(Color.red);
+            bandera++;
+        }
+
+        if (bandera == 0) {
+
+            if (categoria_cmb == 1) {
+                categoria_string = "Historia";
+            } else if (categoria_cmb == 2) {
+                categoria_string = "Ciencia";
+            } else if (categoria_cmb == 3) {
+                categoria_string = "Entretenimiento";
+            } else if (categoria_cmb == 4) {
+                categoria_string = "Geografia";
+            } else if (categoria_cmb == 5) {
+                categoria_string = "Deportes";
+            }
+
+            if (ronda_cmb == 1) {
+                ronda_string = "Ronda 1";
+            } else if (ronda_cmb == 2) {
+                ronda_string = "Ronda 2";
+            } else if (ronda_cmb == 3) {
+                ronda_string = "Ronda 3";
+            } else if (ronda_cmb == 4) {
+                ronda_string = "Ronda 4";
+            } else if (ronda_cmb == 5) {
+                ronda_string = "Ronda 5";
+            }
+
+            try {
+
+                Connection conec = Conexiones.connect();
+                PreparedStatement pst = conec.prepareStatement(
+                        "update preguntas set pregunta =?, op_verdadera=?, op_falsa_uno=?, op_falsa_dos=?, op_falsa_tres, categoria=?, ronda=?"
+                        + "where id_pregunta ='" + id + "'");
+                pst.setString(1, pregunta);
+                pst.setString(2, respuesta);
+                pst.setString(3, falsaUno);
+                pst.setString(4, falsaDos);
+                pst.setString(5, falsaTres);
+                pst.setString(6, categoria_string);
+                pst.setString(7, ronda_string);
+                
+                pst.executeUpdate();
+                conec.close();
+                
+                JOptionPane.showMessageDialog(null, "Modificacion correcta.");
+
+            } catch (SQLException e) {
+                System.err.println("Error al Actualizar" + e);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,9 +334,9 @@ public class Modificar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmb_categoria;
+    private javax.swing.JComboBox<String> cmb_ronda;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_Wallpaper;
     private javax.swing.JLabel jLabel_pregunta;
@@ -223,6 +349,7 @@ public class Modificar extends javax.swing.JFrame {
     private javax.swing.JTextField txt_falsa1;
     private javax.swing.JTextField txt_falsa2;
     private javax.swing.JTextField txt_falsa3;
+    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_pregunta;
     private javax.swing.JTextField txt_respuesta;
     // End of variables declaration//GEN-END:variables

@@ -19,7 +19,7 @@ public class Administrador extends javax.swing.JFrame {
 
     public Administrador() {
         initComponents();
-        setSize(650,400);
+        setSize(400,400);
         setResizable(false);
         setTitle("Administrador");
         setLocationRelativeTo(null);
@@ -68,7 +68,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Configurar Preguntas");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 30));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 400));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -56,7 +56,7 @@ public class GestionPregunta extends javax.swing.JFrame {
             jScrollPane1.setViewportView(jt_preguntas);
 
             //Modificamos los titulos de la tabla
-            model.addColumn(" ");
+            model.addColumn("id_prefunta");
             model.addColumn("Pregunta");
             model.addColumn("Respuesta");
             model.addColumn("Categoria");
@@ -86,7 +86,8 @@ public class GestionPregunta extends javax.swing.JFrame {
                 
                 if (filaPunto > -1) {
                     update = (String)model.getValueAt(filaPunto, columnaPunto);
-                    new Modificar().setVisible(true);
+                    Modificar modificar = new Modificar();
+                    modificar.setVisible(true);
                     
                 }
             }

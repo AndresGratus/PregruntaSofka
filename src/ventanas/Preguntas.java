@@ -76,10 +76,11 @@ public class Preguntas extends javax.swing.JFrame {
         jLabel_Nombre6.setText("Pregunta.");
         getContentPane().add(jLabel_Nombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 200, 30));
 
-        txt_pregunta.setBackground(new java.awt.Color(153, 51, 255));
+        txt_pregunta.setBackground(new java.awt.Color(0, 0, 255));
         txt_pregunta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         txt_pregunta.setForeground(new java.awt.Color(255, 255, 255));
         txt_pregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_pregunta.setText("¿Listo?, Da en Jugar ");
         txt_pregunta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txt_pregunta.setEnabled(false);
         txt_pregunta.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +88,7 @@ public class Preguntas extends javax.swing.JFrame {
                 txt_preguntaActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 330, 60));
+        getContentPane().add(txt_pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 380, 60));
 
         jButton1.setText("Jugar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +98,9 @@ public class Preguntas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, 60));
 
+        jRadioButton_uno.setBackground(new java.awt.Color(0, 51, 255));
         buttonGroup1.add(jRadioButton_uno);
+        jRadioButton_uno.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton_uno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton_unoActionPerformed(evt);
@@ -105,13 +108,19 @@ public class Preguntas extends javax.swing.JFrame {
         });
         getContentPane().add(jRadioButton_uno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
+        jRadioButton_dos.setBackground(new java.awt.Color(0, 51, 255));
         buttonGroup1.add(jRadioButton_dos);
+        jRadioButton_dos.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jRadioButton_dos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
+        jRadioButton_tres.setBackground(new java.awt.Color(0, 51, 255));
         buttonGroup1.add(jRadioButton_tres);
+        jRadioButton_tres.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jRadioButton_tres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
+        jRadioButton_cuatro.setBackground(new java.awt.Color(0, 51, 255));
         buttonGroup1.add(jRadioButton_cuatro);
+        jRadioButton_cuatro.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jRadioButton_cuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         jButton2.setText("comprobar");
