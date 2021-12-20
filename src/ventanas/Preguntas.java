@@ -95,7 +95,7 @@ public class Preguntas extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 90, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, 60));
 
         buttonGroup1.add(jRadioButton_uno);
         jRadioButton_uno.addActionListener(new java.awt.event.ActionListener() {
@@ -120,15 +120,15 @@ public class Preguntas extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 100, 60));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 60));
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Surrender :(");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 100, 60));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 100, 60));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
 
         pack();
@@ -217,6 +217,7 @@ public class Preguntas extends javax.swing.JFrame {
 
             } catch (SQLException e) {
                 System.err.println("Error");
+                JOptionPane.showMessageDialog(null, "!!Error contacte al administrador!!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debes digitar uan opcion");

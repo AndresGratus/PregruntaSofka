@@ -23,6 +23,7 @@ public class Jugador extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Datos");
         setLocationRelativeTo(null);
+        
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
