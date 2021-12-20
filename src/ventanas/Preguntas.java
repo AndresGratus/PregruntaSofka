@@ -8,6 +8,7 @@ package ventanas;
 import java.sql.*;
 import clases.Conexiones;
 import java.awt.Image;
+import java.awt.event.WindowEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -44,7 +45,7 @@ public class Preguntas extends javax.swing.JFrame {
         setTitle("Preguntas y Respuestas");
         setLocationRelativeTo(null);
 
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+//        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
@@ -250,62 +251,67 @@ public class Preguntas extends javax.swing.JFrame {
         if (jRadioButton_uno.isSelected() == true || jRadioButton_dos.isSelected() == true || jRadioButton_tres.isSelected() == true || jRadioButton_cuatro.isSelected() == true) {
             if (aux == 0 && jRadioButton_uno.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
 
             } else if (aux == 1 && jRadioButton_dos.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
 
             } else if (aux == 2 && jRadioButton_tres.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
 
             } else if (aux == 3 && jRadioButton_cuatro.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
             } else if (aux == 4 && jRadioButton_dos.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
             } else if (aux == 5 && jRadioButton_uno.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
             } else if (aux == 6 && jRadioButton_dos.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null,"Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
             } else if (aux == 7 && jRadioButton_tres.isSelected()) {
                 puntos++;
-                JOptionPane.showMessageDialog(null, "Opcion correcta");
+                JOptionPane.showMessageDialog(null, "Opcion correcta" + " Total de puntos" + puntos + "Da en Next para la siguiente pregunta");
 
                 grupo_selecion.clearSelection();
             } else {
                 //Final del juego
                 grupo_selecion.clearSelection();
                 JOptionPane.showMessageDialog(null, "Opcion incorrecta");
-                JOptionPane.showMessageDialog(null, "el total de puntos:" + puntos);
+                JOptionPane.showMessageDialog(null, "el total de puntos es: " + puntos);
+                
+                dispose();
 
             }
 
+        } else{
+            JOptionPane.showConfirmDialog(null,"Debes elegir");
         }
 
 
     }//GEN-LAST:event_boton_comprobarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+   
+        //
 
     }//GEN-LAST:event_jButton3ActionPerformed
     String texto = "";
