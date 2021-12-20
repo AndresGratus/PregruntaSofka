@@ -19,6 +19,7 @@ public class Preguntas extends javax.swing.JFrame {
     int ID = 0;
     boolean paso;
     int aux = 0;
+    int bandera = 1;
 
     /**
      * Creates new form Preguntas
@@ -29,7 +30,6 @@ public class Preguntas extends javax.swing.JFrame {
 //    private PreguntaDate RondaCuatro[];
 //    private PreguntaDate RondaCinco[];
     //Creamos una variable auxiliar para comporbar los jradibu
-
     public Preguntas() {
 
 //        RondaUno = new PreguntaDate[1];
@@ -43,7 +43,7 @@ public class Preguntas extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Preguntas y Respuestas");
         setLocationRelativeTo(null);
-        
+
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
@@ -57,15 +57,15 @@ public class Preguntas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        grupo_selecion = new javax.swing.ButtonGroup();
         jLabel_Nombre6 = new javax.swing.JLabel();
         txt_pregunta = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Boton_juego = new javax.swing.JButton();
         jRadioButton_uno = new javax.swing.JRadioButton();
         jRadioButton_dos = new javax.swing.JRadioButton();
         jRadioButton_tres = new javax.swing.JRadioButton();
         jRadioButton_cuatro = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        boton_comprobar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
@@ -83,7 +83,7 @@ public class Preguntas extends javax.swing.JFrame {
         txt_pregunta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         txt_pregunta.setForeground(new java.awt.Color(255, 255, 255));
         txt_pregunta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_pregunta.setText("¿Listo?, Da en Jugar ");
+        txt_pregunta.setText("¿Listo?, Elige una opcion y Da en Jugar ");
         txt_pregunta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txt_pregunta.setEnabled(false);
         txt_pregunta.addActionListener(new java.awt.event.ActionListener() {
@@ -93,16 +93,16 @@ public class Preguntas extends javax.swing.JFrame {
         });
         getContentPane().add(txt_pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 380, 60));
 
-        jButton1.setText("Jugar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Boton_juego.setText("Jugar");
+        Boton_juego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Boton_juegoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, 60));
+        getContentPane().add(Boton_juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, 60));
 
         jRadioButton_uno.setBackground(new java.awt.Color(0, 51, 255));
-        buttonGroup1.add(jRadioButton_uno);
+        grupo_selecion.add(jRadioButton_uno);
         jRadioButton_uno.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton_uno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,27 +112,27 @@ public class Preguntas extends javax.swing.JFrame {
         getContentPane().add(jRadioButton_uno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         jRadioButton_dos.setBackground(new java.awt.Color(0, 51, 255));
-        buttonGroup1.add(jRadioButton_dos);
+        grupo_selecion.add(jRadioButton_dos);
         jRadioButton_dos.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jRadioButton_dos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jRadioButton_tres.setBackground(new java.awt.Color(0, 51, 255));
-        buttonGroup1.add(jRadioButton_tres);
+        grupo_selecion.add(jRadioButton_tres);
         jRadioButton_tres.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jRadioButton_tres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jRadioButton_cuatro.setBackground(new java.awt.Color(0, 51, 255));
-        buttonGroup1.add(jRadioButton_cuatro);
+        grupo_selecion.add(jRadioButton_cuatro);
         jRadioButton_cuatro.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jRadioButton_cuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
-        jButton2.setText("comprobar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        boton_comprobar.setText("comprobar");
+        boton_comprobar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                boton_comprobarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 60));
+        getContentPane().add(boton_comprobar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 60));
 
         jButton3.setText("Surrender :(");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -150,9 +150,12 @@ public class Preguntas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_preguntaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void Boton_juegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_juegoActionPerformed
 
+        if (ID == 1) {
+            Boton_juego.setText("Next");
+        }
+        //Validamos el ID
         if (ID >= 0 && ID <= 5) {
             ronda = "Ronda 1";
         } else if (ID >= 6 && ID <= 10) {
@@ -165,9 +168,236 @@ public class Preguntas extends javax.swing.JFrame {
             ronda = "Ronda 5";
         }
 
-        if ((jRadioButton_uno.isSelected() || jRadioButton_dos.isSelected() || jRadioButton_tres.isSelected() || jRadioButton_cuatro.isSelected()) && (paso = true)) {
-            paso = false;
-            ID++;
+        ID++;
+        try {
+            Connection cn = Conexiones.connect();
+            PreparedStatement pst = cn.prepareStatement(
+                    "select * from preguntas where ronda = '" + ronda
+                    + "' and id_pregunta = '" + ID + "'");
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                ID = rs.getInt("id_pregunta");
+
+                txt_pregunta.setText(rs.getString("pregunta"));
+                int num = (int) (Math.random() * (7));
+
+                if (num == 0) {
+                    jRadioButton_uno.setText(rs.getString("op_verdadera"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+                } else if (num == 1) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_verdadera"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+                } else if (num == 2) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_verdadera"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+                } else if (num == 3) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_cuatro.setText(rs.getString("op_verdadera"));
+                } else if (num == 4) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_uno"));
+                    jRadioButton_dos.setText(rs.getString("op_verdadera"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_dos"));
+                } else if (num == 5) {
+                    jRadioButton_uno.setText(rs.getString("op_verdadera"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
+                } else if (num == 6) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_dos.setText(rs.getString("op_verdadera"));
+                    jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
+                } else if (num == 7) {
+                    jRadioButton_uno.setText(rs.getString("op_falsa_tres"));
+                    jRadioButton_dos.setText(rs.getString("op_falsa_dos"));
+                    jRadioButton_tres.setText(rs.getString("op_verdadera"));
+                    jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
+                }
+                aux = num;
+
+            }
+            cn.close();
+
+        } catch (SQLException e) {
+            System.err.println("Error");
+            JOptionPane.showMessageDialog(null, "!!Error contacte al administrador!!");
+        }
+        bandera = 0;
+
+        Boton_juego.getText();
+
+    }//GEN-LAST:event_Boton_juegoActionPerformed
+
+    private void jRadioButton_unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_unoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_unoActionPerformed
+    int puntos = 0;
+
+    private void boton_comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_comprobarActionPerformed
+        Boton_juego.setText("Next");
+        Preguntas preguntas = new Preguntas();
+
+        if (jRadioButton_uno.isSelected() == true || jRadioButton_dos.isSelected() == true || jRadioButton_tres.isSelected() == true || jRadioButton_cuatro.isSelected() == true) {
+            if (aux == 0 && jRadioButton_uno.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+
+            } else if (aux == 1 && jRadioButton_dos.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+
+            } else if (aux == 2 && jRadioButton_tres.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+
+            } else if (aux == 3 && jRadioButton_cuatro.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+            } else if (aux == 4 && jRadioButton_dos.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+            } else if (aux == 5 && jRadioButton_uno.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+            } else if (aux == 6 && jRadioButton_dos.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+            } else if (aux == 7 && jRadioButton_tres.isSelected()) {
+                puntos++;
+                JOptionPane.showMessageDialog(null, "Opcion correcta");
+
+                grupo_selecion.clearSelection();
+            } else {
+                //Final del juego
+                grupo_selecion.clearSelection();
+                JOptionPane.showMessageDialog(null, "Opcion incorrecta");
+                JOptionPane.showMessageDialog(null, "el total de puntos:" + puntos);
+
+            }
+
+        }
+
+
+    }//GEN-LAST:event_boton_comprobarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+    String texto = "";
+
+//    public void listar() {
+//        for (int i = 0; i < 1; i++) {
+//            PreguntaDate pregu = RondaUno[i];
+//            texto += (1 + i) + pregu.getCategoria() + "  " + pregu.getRonda();
+//        }
+//        JOptionPane.showMessageDialog(null, "El areglo tiene " + texto);
+//    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Preguntas().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Boton_juego;
+    private javax.swing.JButton boton_comprobar;
+    private javax.swing.ButtonGroup grupo_selecion;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel_Nombre6;
+    private javax.swing.JLabel jLabel_Wallpaper;
+    private javax.swing.JRadioButton jRadioButton_cuatro;
+    private javax.swing.JRadioButton jRadioButton_dos;
+    private javax.swing.JRadioButton jRadioButton_tres;
+    private javax.swing.JRadioButton jRadioButton_uno;
+    private javax.swing.JTextField txt_pregunta;
+    // End of variables declaration//GEN-END:variables
+
+    //metodo ramdon
+//    public void ramdom() {
+//        int num = (int) (Math.random() * (10));
+//
+//        if (num == 0) {
+//            jRadioButton_uno.setText(rs.getString("op_verdadera"));
+//            jRadioButton_dos.setText(rs.getString("op_falsa_uno"));
+//            jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
+//            jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
+//        }
+//    }
+    public void clean() {
+        jRadioButton_uno.setSelected(false);
+        jRadioButton_dos.setSelected(false);
+        jRadioButton_tres.setSelected(false);
+        jRadioButton_cuatro.setSelected(false);
+    }
+
+    public void llenar() {
+        if (ID >= 0 && ID <= 5) {
+            ronda = "Ronda 1";
+        } else if (ID >= 6 && ID <= 10) {
+            ronda = "Ronda 2";
+        } else if (ID >= 11 && ID <= 15) {
+            ronda = "Ronda 3";
+        } else if (ID >= 16 && ID <= 20) {
+            ronda = "Ronda 4";
+        } else if (ID >= 21 && ID <= 25) {
+            ronda = "Ronda 5";
+        }
+
+        if (bandera == 1) {
             try {
                 Connection cn = Conexiones.connect();
                 PreparedStatement pst = cn.prepareStatement(
@@ -223,6 +453,7 @@ public class Preguntas extends javax.swing.JFrame {
                         jRadioButton_cuatro.setText(rs.getString("op_falsa_uno"));
                     }
                     aux = num;
+                    ID++;
 
                 }
                 cn.close();
@@ -231,123 +462,8 @@ public class Preguntas extends javax.swing.JFrame {
                 System.err.println("Error");
                 JOptionPane.showMessageDialog(null, "!!Error contacte al administrador!!");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Debes digitar uan opcion");
+            bandera = 0;
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jRadioButton_unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_unoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton_unoActionPerformed
-    int puntos = 0;
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        if (aux == 0 && jRadioButton_uno.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-            paso = true;
-        } else if (aux == 1 && jRadioButton_dos.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-            paso = true;
-        } else if (aux == 2 && jRadioButton_tres.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-            paso = true;
-        } else if (aux == 3 && jRadioButton_cuatro.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-        } else if (aux == 4 && jRadioButton_dos.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-        } else if (aux == 5 && jRadioButton_uno.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-        } else if (aux == 6 && jRadioButton_dos.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-        } else if (aux == 7 && jRadioButton_tres.isSelected()) {
-            puntos++;
-            JOptionPane.showMessageDialog(null, "Opcion correcta");
-        } else {
-            //Final del juego
-            JOptionPane.showMessageDialog(null, "Opcion incorrecta");
-            JOptionPane.showMessageDialog(null, "el total de puntos:" + puntos);
-        }
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-    String texto = "";
-
-//    public void listar() {
-//        for (int i = 0; i < 1; i++) {
-//            PreguntaDate pregu = RondaUno[i];
-//            texto += (1 + i) + pregu.getCategoria() + "  " + pregu.getRonda();
-//        }
-//        JOptionPane.showMessageDialog(null, "El areglo tiene " + texto);
-//    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Preguntas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Preguntas().setVisible(true);
-            }
-        });
+        Boton_juego.setText("Solucion");
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel_Nombre6;
-    private javax.swing.JLabel jLabel_Wallpaper;
-    private javax.swing.JRadioButton jRadioButton_cuatro;
-    private javax.swing.JRadioButton jRadioButton_dos;
-    private javax.swing.JRadioButton jRadioButton_tres;
-    private javax.swing.JRadioButton jRadioButton_uno;
-    private javax.swing.JTextField txt_pregunta;
-    // End of variables declaration//GEN-END:variables
-
-    //metodo ramdon
-//    public void ramdom() {
-//        int num = (int) (Math.random() * (10));
-//
-//        if (num == 0) {
-//            jRadioButton_uno.setText(rs.getString("op_verdadera"));
-//            jRadioButton_dos.setText(rs.getString("op_falsa_uno"));
-//            jRadioButton_tres.setText(rs.getString("op_falsa_dos"));
-//            jRadioButton_cuatro.setText(rs.getString("op_falsa_tres"));
-//        }
-//    }
 }
