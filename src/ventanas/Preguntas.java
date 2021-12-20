@@ -14,10 +14,11 @@ import javax.swing.JOptionPane;
 
 public class Preguntas extends javax.swing.JFrame {
 
-    String ronda = "Ronda 1";
+    String ronda;
     int ID = 0;
-    boolean paso ;
+    boolean paso;
     int aux = 0;
+
     /**
      * Creates new form Preguntas
      */
@@ -27,7 +28,6 @@ public class Preguntas extends javax.swing.JFrame {
 //    private PreguntaDate RondaCuatro[];
 //    private PreguntaDate RondaCinco[];
     //Creamos una variable auxiliar para comporbar los jradibu
-    
 
     public Preguntas() {
 
@@ -48,7 +48,6 @@ public class Preguntas extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
 
-    
     }
 
     @SuppressWarnings("unchecked")
@@ -141,11 +140,21 @@ public class Preguntas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-//        paso = true;
-        
+
+        if (ID >= 0 && ID <= 5) {
+            ronda = "Ronda 1";
+        } else if (ID >= 6 && ID <= 10) {
+            ronda = "Ronda 2";
+        } else if (ID >= 11 && ID <= 15) {
+            ronda = "Ronda 3";
+        } else if (ID >= 16 && ID <= 20) {
+            ronda = "Ronda 4";
+        } else if (ID >= 21 && ID <= 25) {
+            ronda = "Ronda 5";
+        }
+
         if ((jRadioButton_uno.isSelected() || jRadioButton_dos.isSelected() || jRadioButton_tres.isSelected() || jRadioButton_cuatro.isSelected()) && (paso = true)) {
-            paso=false;
+            paso = false;
             ID++;
             try {
                 Connection cn = Conexiones.connect();
@@ -209,7 +218,7 @@ public class Preguntas extends javax.swing.JFrame {
             } catch (SQLException e) {
                 System.err.println("Error");
             }
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "Debes digitar uan opcion");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -219,11 +228,11 @@ public class Preguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton_unoActionPerformed
     int puntos = 0;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
         if (aux == 0 && jRadioButton_uno.isSelected()) {
             puntos++;
             JOptionPane.showMessageDialog(null, "Opcion correcta");
-            paso= true;
+            paso = true;
         } else if (aux == 1 && jRadioButton_dos.isSelected()) {
             puntos++;
             JOptionPane.showMessageDialog(null, "Opcion correcta");
@@ -256,8 +265,8 @@ public class Preguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
     String texto = "";
 
