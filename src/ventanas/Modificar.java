@@ -274,7 +274,7 @@ public class Modificar extends javax.swing.JFrame {
 
                 Connection conec = Conexiones.connect();
                 PreparedStatement pst = conec.prepareStatement(
-                        "update preguntas set pregunta =?, op_verdadera=?, op_falsa_uno=?, op_falsa_dos=?, op_falsa_tres, categoria=?, ronda=?"
+                        "update preguntas set pregunta =?, op_verdadera=?, op_falsa_uno=?, op_falsa_dos=?, op_falsa_tres=?, categoria=?, ronda=?"
                         + "where id_pregunta ='" + id + "'");
                 pst.setString(1, pregunta);
                 pst.setString(2, respuesta);
