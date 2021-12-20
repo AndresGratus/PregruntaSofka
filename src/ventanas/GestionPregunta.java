@@ -24,11 +24,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Andres
  */
 public class GestionPregunta extends javax.swing.JFrame {
-    
-    public static String update ="";
+
+    public static String update = "";
     DefaultTableModel model = new DefaultTableModel();
-    
-    
 
     /**
      * Creates new form GestionPregunta
@@ -46,40 +44,54 @@ public class GestionPregunta extends javax.swing.JFrame {
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
-        
+
         try {
             Connection conec = Conexiones.connect();
             PreparedStatement pst = conec.prepareStatement(
                     "select id_pregunta, pregunta, op_verdadera, categoria, ronda from preguntas");
-            
+
             ResultSet rs = pst.executeQuery();
-            
+
             jt_preguntas = new JTable(model);
             jScrollPane1.setViewportView(jt_preguntas);
-            
+
             //Modificamos los titulos de la tabla
             model.addColumn(" ");
             model.addColumn("Pregunta");
             model.addColumn("Respuesta");
             model.addColumn("Categoria");
             model.addColumn("Ronda");
-            
+
             //llenamos la tabla
-            while (rs.next()) {                
+            while (rs.next()) {
                 Object[] objfila = new Object[5];
                 for (int i = 0; i < 5; i++) {
-                    objfila[i] = rs.getObject(i+1);
+                    objfila[i] = rs.getObject(i + 1);
                 }
                 model.addRow(objfila);
             }
             conec.close();
-            
+
         } catch (SQLException e) {
             System.err.println("Error al llenar tabla" + e);
             JOptionPane.showMessageDialog(null, "!Error al mostrar informacion, contacte al administrador!");
         }
-        
-        
+
+        //Programamos un evento para poder modificar algun error en la pregunta
+        jt_preguntas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                int filaPunto = jt_preguntas.rowAtPoint(e.getPoint());
+                int columnaPunto = 2;
+                
+                if (filaPunto > -1) {
+                    update = (String)model.getValueAt(filaPunto, columnaPunto);
+                    new Modificar().setVisible(true);
+                    
+                }
+            }
+        });
+
     }
 
     /**
