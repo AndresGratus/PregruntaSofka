@@ -13,6 +13,7 @@ import java.sql.*;
 import clases.Conexiones;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -30,6 +31,7 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Preguntas Y Respuestas. sesion de " + user);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
