@@ -19,7 +19,8 @@ public class Sofka {
      */
     public static void main(String[] args) {
         Metodos obj = new Metodos();
-        obj.ingresarArreglo(1);
+        //obj.ingresarArreglo(1,5);
+        obj.obtenerPreguntas();
         obj.mostra();
     }
     
