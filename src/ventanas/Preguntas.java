@@ -39,7 +39,7 @@ public class Preguntas extends javax.swing.JFrame {
 
 //        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
-        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.png");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();

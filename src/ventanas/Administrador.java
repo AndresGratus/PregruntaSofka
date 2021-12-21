@@ -19,17 +19,20 @@ public class Administrador extends javax.swing.JFrame {
 
     public Administrador() {
         initComponents();
-        setSize(400,400);
+        setSize(400, 550);
         setResizable(false);
         setTitle("Administrador");
         setLocationRelativeTo(null);
         
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
-        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipalDos.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
+        
+        //Icono boton
+        
     }
     //Agregamos unos iconos 
     @Override
@@ -50,6 +53,10 @@ public class Administrador extends javax.swing.JFrame {
 
         jButton_RegistrarPregunta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton_RegistrarPregunta1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,13 +69,41 @@ public class Administrador extends javax.swing.JFrame {
                 jButton_RegistrarPreguntaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton_RegistrarPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 130));
+        getContentPane().add(jButton_RegistrarPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 250, 130));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Configurar Preguntas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 30));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 140, 30));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Creado por Andres •.");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 210, -1));
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Administrador");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 250, -1));
+
+        jButton_RegistrarPregunta1.setBackground(new java.awt.Color(0, 51, 255));
+        jButton_RegistrarPregunta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/creatividad.png"))); // NOI18N
+        jButton_RegistrarPregunta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RegistrarPregunta1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton_RegistrarPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 250, 130));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Acerca De");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 100, 20));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,6 +112,10 @@ public class Administrador extends javax.swing.JFrame {
         RegistrarPreguntas registrarpreguntas = new RegistrarPreguntas();
         registrarpreguntas.setVisible(true);
     }//GEN-LAST:event_jButton_RegistrarPreguntaActionPerformed
+
+    private void jButton_RegistrarPregunta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarPregunta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_RegistrarPregunta1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,7 +154,11 @@ public class Administrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_RegistrarPregunta;
+    private javax.swing.JButton jButton_RegistrarPregunta1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel_Wallpaper;
     // End of variables declaration//GEN-END:variables
 }

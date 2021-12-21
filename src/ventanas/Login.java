@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         //Dentro de imageico guardamos la ruta de las imagenes 
-        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.jpg");
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/wallpaperPrincipal.png");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
         jLabel_foolder.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel_foolder.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_foolder.setText("Creado por Andres Felipe æ.");
-        getContentPane().add(jLabel_foolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 510, -1, -1));
+        getContentPane().add(jLabel_foolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 550));
 
         pack();
