@@ -14,9 +14,10 @@ public class Metodos {
 
     int id;
     String pregunta, respuesta, falsaUno, falsados, falsaTres, categoria, ronda;
+    String text ="";
 
     public Metodos() {
-        RondaUno = new PreguntaDate[1];
+        RondaUno = new PreguntaDate[5];
         RondaDos = new PreguntaDate[5];
         RondaTres = new PreguntaDate[5];
         RondaCuatro = new PreguntaDate[5];
@@ -24,11 +25,13 @@ public class Metodos {
     }
 
     public void ingresarArreglo() {
-        for (int i = 1; i <= 5; i++) {
+        //Variable de prueba 
+        int aux =1;
+        for (int i = 0; i < 5; i++) {
             try {
                 Connection conec = Conexiones.connect();
                 PreparedStatement pst = conec.prepareCall(
-                        "select * from preguntas where id_pregunta ='" + i + "'");
+                        "select * from preguntas where id_pregunta ='" + aux + "'");
                 ResultSet rs = pst.executeQuery();
 
                 
@@ -49,8 +52,20 @@ public class Metodos {
             }
             
             RondaUno[i] = new PreguntaDate(id, pregunta, ronda, falsaUno, falsaUno, falsaTres, categoria, ronda);
+            aux++;
         }
 
     }
+    
+    public void mostra(){
+        
+        for (int i = 0; i < RondaUno.length; i++) {
+            PreguntaDate preguntaDate = RondaUno[i];
+            text += (1+i) + "Id pregunta" + preguntaDate.getCont() + " -  pregunta" + preguntaDate.getPregunta();
+        }
+        
+        System.out.println(" " + text);
+    }
+    
 
 }

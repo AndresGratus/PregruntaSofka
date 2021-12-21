@@ -25,19 +25,11 @@ public class Preguntas extends javax.swing.JFrame {
     /**
      * Creates new form Preguntas
      */
-//    private PreguntaDate RondaUno[];
-//    private PreguntaDate RondaDos[];
-//    private PreguntaDate RondaTres[];
-//    private PreguntaDate RondaCuatro[];
-//    private PreguntaDate RondaCinco[];
+
     //Creamos una variable auxiliar para comporbar los jradibu
     public Preguntas() {
 
-//        RondaUno = new PreguntaDate[1];
-//        RondaDos = new PreguntaDate[5];
-//        RondaTres = new PreguntaDate[5];
-//        RondaCuatro = new PreguntaDate[5];
-//        RondaCinco = new PreguntaDate[5];
+
         initComponents();
 
         setSize(400, 400);
