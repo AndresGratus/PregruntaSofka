@@ -10,6 +10,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.sql.*;
 import clases.Conexiones;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -46,6 +47,12 @@ public class Gestion extends javax.swing.JFrame {
         this.repaint();
 
     }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/quiz.png"));
+        return retValue;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -31,13 +31,14 @@ public class Administrador extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
         
-        //Icono boton
+        //Icono boton//Logo
+        
         
     }
     //Agregamos unos iconos 
     @Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/creatividad.png"));
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/Gestionar.png"));
         return retValue;
     }
     
@@ -63,7 +64,7 @@ public class Administrador extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton_RegistrarPregunta.setBackground(new java.awt.Color(0, 51, 255));
-        jButton_RegistrarPregunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/creatividad.png"))); // NOI18N
+        jButton_RegistrarPregunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/opciones.png"))); // NOI18N
         jButton_RegistrarPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_RegistrarPreguntaActionPerformed(evt);

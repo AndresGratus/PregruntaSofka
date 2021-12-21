@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import clases.Conexiones;
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -29,7 +30,7 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
         
         setSize(630, 380);
         setResizable(false);
-        setTitle("Preguntas Y Respuestas. sesion de " + user);
+        setTitle("Preguntas Y Respuestas ");
         setLocationRelativeTo(null);
         
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -39,6 +40,10 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
         
+    }
+     public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/editar.png"));
+        return retValue;
     }
     
     @SuppressWarnings("unchecked")
@@ -64,6 +69,8 @@ public class RegistrarPreguntas extends javax.swing.JFrame {
         jLabel_Wallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 51, 255));
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

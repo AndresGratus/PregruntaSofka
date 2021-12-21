@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import clases.Conexiones;
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -20,7 +21,7 @@ public class Jugador extends javax.swing.JFrame {
     public Jugador() {
         initComponents();
 
-        setSize(400, 400);
+        setSize(400, 500);
         setResizable(false);
         setTitle("Datos");
         setLocationRelativeTo(null);
@@ -30,6 +31,17 @@ public class Jugador extends javax.swing.JFrame {
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel_Wallpaper.getWidth(), jLabel_Wallpaper.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Wallpaper.setIcon(icono);
         this.repaint();
+        
+        //Agregamos las reglas del juego
+       JOptionPane.showMessageDialog(null, "<html> <p style = \"color:green \">  ***  REGLAS  ***</p> </html>\n1. Debes elegir una opcion. \n2. Da en el boton Comprobar.\n3. Da en next. ", "REGLAS",
+                                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/imagenes/quiz.png"));
+       //new ImageIcon("src/imagenes/icon.png")
+       
+    }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/quiz.png"));
+        return retValue;
     }
 
     /**
@@ -99,7 +111,7 @@ public class Jugador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 210, 50));
-        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
+        getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
